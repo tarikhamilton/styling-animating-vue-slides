@@ -1,0 +1,139 @@
+/**
+ * Black theme for reveal.js. This is the opposite of the 'white' theme.
+ *
+ * By Hakim El Hattab, http://hakim.se
+ */
+// Default mixins and settings -----------------
+@import "../template/mixins";
+@import "../template/settings";
+// ---------------------------------------------
+// Include theme-specific fonts
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,300i,400,400i,600,600i,700,700i');
+@import './../../../node_modules/bootstrap/scss/bootstrap.scss';
+
+$color-vue-light-green: rgb(71, 183, 133);
+
+// Override theme settings (see ../template/settings.scss)
+$backgroundColor: #2c3e50;
+
+$mainColor: #fff;
+$headingColor: $color-vue-light-green;
+
+$mainFontSize: 36px;
+$mainFont: 'Source Sans Pro', Helvetica, Arial, sans-serif;
+$headingFont: 'Source Sans Pro', Helvetica, Arial, sans-serif;
+$headingTextShadow: none;
+$headingLetterSpacing: normal;
+$headingTextTransform: none;
+$headingFontWeight: 300;
+$linkColor: $color-vue-light-green;
+$linkColorHover: lighten($linkColor, 15%);
+$selectionBackgroundColor: lighten($linkColor, 25%);
+
+$heading1Size: 2.2em;
+$heading2Size: 1.6em;
+$heading3Size: 1.3em;
+$heading4Size: 1.0em;
+
+section.has-light-background {
+	&, h1, h2, h3, h4, h5, h6 {
+		color: #222;
+	}
+}
+
+section {
+	text-align: left;
+}
+
+a .fab {
+	color: #f6f6f6;
+}
+
+.reveal {
+	code {
+		display: inline-block;
+		background: darken($backgroundColor, 5%);
+		color: $color-vue-light-green;
+		border-radius: 0.25em;
+		padding: 0 0.25em;
+	}
+
+	section.centered {
+		text-align: center;
+	}
+
+	.outline-slide {
+		font-size: 1.5rem;
+	}
+
+	ul, ol {
+		li {
+			margin: 0 0 0.75rem;
+		}
+	}
+
+	.img-slide {
+		h1, h2, h3, h4 {
+			text-align: left;
+		}
+
+		text-align: center;
+	}
+
+	.img {
+		&--centered {
+			max-height: 40vh;
+			width: auto;
+			margin: auto;
+		}
+	}
+
+	.social-media {
+		margin: 0 0 1rem;
+		padding: 0;
+
+		li {
+			margin: 0 0 0.25rem;
+			padding: 0;
+			list-style: none;
+		}
+
+		li i {
+			width: 4rem;
+		}
+	}
+
+	.img-txt-overlay {
+		position: relative;
+		display: inline-block;
+		font-size: 0;
+
+		&__img {
+			display: block;
+			margin: 0;
+			width: 100%;
+			max-height: none;
+			max-width: none;
+			border: 0;
+		}
+
+		&__text {
+			position: absolute;
+			background-color: rgba(black, 0.5);
+			left: 0;
+			right: 0;
+			padding: 1rem;
+			font-size: 2rem;
+			text-align: center;
+
+			&--bottom {
+				bottom: 0;
+			}
+		}
+	}
+}
+
+// Theme template ------------------------------
+@import "../template/theme";
+
+// ---------------------------------------------

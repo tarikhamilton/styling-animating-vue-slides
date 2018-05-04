@@ -8,7 +8,7 @@
     <title>reveal.js</title>
 
     <link rel="stylesheet" href="css/reveal.css">
-    <link rel="stylesheet" href="css/theme/black.css">
+    <link rel="stylesheet" href="css/theme/vue.css">
 
     <!-- Theme used for syntax highlighting of code -->
     <link rel="stylesheet" href="lib/css/zenburn.css">
@@ -32,15 +32,296 @@
         <section>
             <h1>Styling and Animating in Vue.js</h1>
             <p>Presented by Tarik Hamilton</p>
-            <ul>
-                <li><a href="http://tarikhamilton.com/github"><i class="fab fa-github-alt"></i> tikitariki</a></li>
-                <li><a href="http://tarikhamilton.com/instagram"><i class="fab fa-instagram"></i> tikitariki</a></li>
-                <li><a href="http://tarikhamilton.com/twitter"><i class="fab fa-twitter"></i> tikitariki</a></li>
-                <li><a href="http://tarikhamilton.com/youtube"><i class="fab fa-youtube"></i> tikitariki</a></li>
-                <li><a href="http://tarikhamilton.com/facebook"><i class="fab fa-facebook"></i> tikitariki</a></li>
+            <ul class="social-media">
+                <li>
+                    <a href="https://tarikhamilton.com/github"><i class="fab fa-github-alt"></i> tarikhamilton.com/github</a>
+                </li>
+                <li>
+                    <a href="https://tarikhamilton.com/instagram"><i class="fab fa-instagram"></i> tarikhamilton.com/instagram</a>
+                </li>
+                <li><a href="https://tarikhamilton.com/twitter"><i class="fab fa-twitter"></i> tarikhamilton.com/twitter</a>
+                </li>
+                <li><a href="https://tarikhamilton.com/youtube"><i class="fab fa-youtube"></i> tarikhamilton.com/youtube</a>
+                </li>
+                <li>
+                    <a href="https://tarikhamilton.com/facebook"><i class="fab fa-facebook"></i> tarikhamilton.com/facebook</a>
+                </li>
             </ul>
         </section>
-        <section>Slide 2</section>
+        <section>
+            <h2>A Little About Me and My Experience</h2>
+            <ul>
+                <li>Lead developer at The Symphony Agency, a digital marketing agency</li>
+                <li>Used Vue in production for over a year in WordPress and Laravel</li>
+                <li>Used as an app's entire front-end, as part of a theme, and apps in a larger system</li>
+            </ul>
+            <aside class="notes">
+                <p>Websites and API integrations.</p>
+                <p>WordPress has gone with React as the framework that powers their new editor UI</p>
+                <p>Vue is great and is the default choice by Laravel and its community.</p>
+                <p>I've used Vue for SPAs where all the styles are managed by the app, as part of pre-existing layouts where I want to inherit global styles and also independent apps with isolated styles. It's definitely my go-to, though I'm very interested in learning more about React to understand the React perspective.</p>
+                </ul>
+            </aside>
+        </section>
+        <section class="centered">
+            <h2>A Little About Me and My Experience (cont'd)</h2>
+            <img src="images/ctapicker.png" alt="">
+        </section>
+        <section class="centered">
+            <h2>A Little About Me and My Experience (cont'd)</h2>
+            <img src="images/fontpicker.png" alt="">
+        </section>
+        <section class="centered">
+            <h2>A Little About Me and My Experience (cont'd)</h2>
+            <img src="images/map.png" alt="">
+        </section>
+        <section class="outline-slide">
+            <ol>
+                <li>Getting Started</li>
+                <ol>
+                    <li>Single File Components</li>
+                    <li>Scaling CSS in Vue</li>
+                    <li>CSS Modules Example</li>
+                </ol>
+                <li>Using Data and Props in Your Styling</li>
+                <ol>
+                    <li>Styling Recommendations</li>
+                    <li>Using Computed for Styling</li>
+                    <li>Using Class Binding for Styling</li>
+                    <li>Feed Gary Demo</li>
+                </ol>
+                <li>Transitions and Animations</li>
+                <ol>
+                    <li>Enter/Leave Transitions</li>
+                    <li>Feed Gary 2 Demo</li>
+                    <li>Component Transitions + Animations Demo</li>
+                    <li>List Transitions</li>
+                </ol>
+            </ol>
+            <aside class="notes">
+                <ul>
+                    <li>Who has used Vue?</li>
+                    <li>Who feels pretty comfortable with Vue?</li>
+                    <li>Who here uses React?</li>
+                </ul>
+            </aside>
+        </section>
+        <section>
+            <h1>Getting Started</h1>
+        </section>
+        <section>
+            <h2>Single File Components</h2>
+            <ul>
+                <li>Preferred and default setup provided by <code>vue-cli</code></li>
+                <li><code>.vue</code> files contain a <code>&lt;template&gt;</code>, <code>&lt;script&gt;</code>, and
+                    <code>&lt;style&gt;</code> tag
+                </li>
+                <li>Style tag lets you write SCSS, Sass, Less, or CSS as you normally would with optional scoping.
+                    <p><code>&lt;style lang="scss" scoped&gt;</code></p>
+                </li>
+            </ul>
+        </section>
+        <section class="img-slide">
+            <h2>Scaling CSS in Vue</h2>
+            <p>Problems with CSS at scale?</p>
+            <img class="img img--centered" src="images/spongebob-grin.jpg" alt="">
+            <p>Not with Vue.</p>
+            <aside class="notes">
+                <p>vue-loader allows you to leverage many CSS-in-JS concepts, while keeping your CSS looks like CSS</p>
+                <p>Your styles are right there with your template</p>
+                <p>You can explicitly declare dependencies</p>
+                <p>You can protect your styles from the global namespace</p>
+            </aside>
+        </section>
+        <section>
+            <h2>CSS Modules Demo</h2>
+            <a href="https://codesandbox.io/s/qqkz4l84n4">Demo</a>
+        </section>
+        <section>
+            <h1>Using Data and Props in Your Styling</h1>
+        </section>
+        <section>
+            <h2>Styling Recommendations</h2>
+            <p>Styling is really opinionated and is going to vary team to team.</p>
+            <ul>
+                <li>You don't have to use BEM (block__element--modifier), but use a naming convention.</li>
+                <li>Always use classes, never tag selectors.</li>
+                <li>Keep common styles like typography (size, weight, color) and complex properties (box-shadow, backgrounds) as mixins.</li>
+            </ul>
+            <p>
+            <pre><code>
+@mixin bigCoolAndUgly {
+    font-family: Impact;
+    font-size: 3rem;
+    color: blue;
+}
+
+.page-title {
+    @include bigCoolAndUgly();
+}
+        </code></pre>
+            </p>
+        </section>
+        <section>
+            <h2>Using Computed for Styling</h2>
+            <p>Computed properties listen for changes on the data or props that are used inside its function.</p>
+            <p>This makes them ideal for altering styles based on component state</p>
+            <pre><code>template: `
+  &lt;div class="meter"&gt;&lt;div class="fill" :style="fillStyle"&gt;&lt;/div&gt;&lt;/div&gt;`,
+props: {
+  fill: Number,
+  max: Number
+},
+computed: {
+  fillStyle() {
+    return {
+      width: this.fill / this.max * 100 + "%"
+    };
+  }
+}
+</code></pre>
+            <aside class="notes">
+                <p>Computed is very performant. Even though they are written with functions, the function only serves to provide an updated value when one of the dependencies change.</p>
+            </aside>
+        </section>
+        <section>
+            <h2>Using Computed for Styling (cont'd)</h2>
+            <h3>Why not use data or props directly?</h3>
+            <ul>
+                <li>Computed is easier to use because you can keep your numbers as numbers.
+                    <code>px</code>,
+                    <code>rem</code>, etc make many CSS properties strings.
+                </li>
+                <li>In CSS, we use percentages (e.g.:
+                    <code>width: 50%;</code>), but in code and doing calculations, we use the floating-point numbers (e.g.:
+                    <code>0.5</code>).
+                </li>
+                <li>Your data and props should always use
+                    <code>Number</code> data type to represent all quantities with JavaScript being our middleman to CSS.
+                </li>
+            </ul>
+        </section>
+        <section>
+            <h2>Using Computed for Styling (cont'd)</h2>
+            <div class="row">
+                <div class="col-sm-6" style="text-align: center;">
+                    <div>
+                        <div class="img-txt-overlay">
+                            <img class="img-txt-overlay__img" src="images/drakeposting-yuh.jpg" alt="" style="max-width: 10rem">
+                            <span class="img-txt-overlay__text img-txt-overlay__text--bottom">Good</span>
+                        </div>
+                    </div>
+                    <ul>
+                        <li>Style dependent on user input or dependent on data</li>
+                        <li>Progress indicators (analog clocks, loading bars)</li>
+                        <li>Positioning</li>
+                    </ul>
+                </div>
+                <div class="col-sm-6" style="text-align: center;">
+                    <div>
+                        <div class="img-txt-overlay">
+                            <img class="img-txt-overlay__img" src="images/drakeposting-nah.jpg" alt="" style="max-width: 10rem">
+                            <span class="img-txt-overlay__text img-txt-overlay__text--bottom">Bad</span>
+                        </div>
+                    </div>
+                    <ul>
+                        <li>UI state</li>
+                        <li>... everything else</li>
+                    </ul>
+                </div>
+            </div>
+            <aside class="notes">
+                <p>The one styling recommendation I will make is to try and use CSS as much as possible and use classes and never elements.</p>
+                <p>Things that are good for computed are unpredictable and are based on external factors, while bad things for computed are things within your app's control.</p>
+            </aside>
+        </section>
+        <section>
+            <h2>Using Class Binding for Styling</h2>
+            <p>Class bindings are how you can style based on UI state, such as disabling buttons and applying alternative styles to a component based on data or props.</p>
+        </section>
+        <section>
+            <h2>Using Class Binding for Styling (cont'd)</h2>
+            <p>Slightly confusing if you do it in the template and mix arrays and objects.</p>
+            <pre><code>['btn', disabled ? 'disabled' : '']</code></pre>
+            <pre><code>{
+  btn: true,
+  disabled: disabled // key = class, value = expression
+}
+
+            </code></pre>
+            <pre><code>[
+  'btn',
+  {
+    disabled: disabled // key = class, value = expression
+  }
+]
+            </code></pre>
+            <aside class="notes">
+                <p>So, if we are keeping a lot of styles in our CSS, what is the best way to apply them dynamically?</p>
+            </aside>
+        </section>
+        <section>
+            <h2>Feed Gary Demo</h2>
+            <a href="https://codesandbox.io/s/08rnnw4w0">Feed Gary Demo</a>
+        </section>
+        <section>
+            <h1>Transitions</h1>
+        </section>
+        <section>
+            <h2>Enter/Leave Transitions</h2>
+            <p>Wrapping your code in
+                <code>&lt;transition name="yourTransition"&gt;</code>, Vue will automatically apply classes representing the state of your transition when an element or component is revealed.
+            </p>
+            <p>You also get JavaScript hooks!</p>
+        </section>
+        <section>
+            <h2>Enter/Leave Transitions (cont'd)</h2>
+            <div class="row">
+                <div class="col-sm-6"><img src="images/transition.png" alt=""></div>
+                <div class="col-sm-6">
+                <pre><code>.fade-enter-active,
+.fade-leave-active {
+  transition: all 400ms;
+}
+
+.fade-enter-to {
+  opacity: 1;
+  transform: scale(1.2);
+}
+
+.fade-enter {
+  transform: scale(0.1);
+}
+
+.fade-leave {
+  transform: scale(1);
+}
+
+.fade-enter,
+.fade-leave-to {
+  opacity: 0;
+}
+</code></pre>
+                    <p style="font-size: 1rem;">(This scrolls, btw)</p>
+                </div>
+            </div>
+        </section>
+        <section>
+            <h2>Feed Gary 2 Demo</h2>
+            <a href="https://codesandbox.io/s/50rx78424x">Demo</a>
+        </section>
+        <section>
+            <h2>Component Transitions + Animations Demo</h2>
+            <a href="https://codesandbox.io/s/6y2k6n40nw">Demo</a>
+        </section>
+        <section>
+            <h2>List Transitions</h2>
+            <a href="https://vuejs.org/v2/guide/transitions.html#List-Move-Transitions">List Transitions</a>
+        </section>
+        <section>
+            <h2>Bonus Code Sandbox</h2>
+            <a href="https://codesandbox.io/s/n10kjn8plm"></a>
+        </section>
     </div>
 </div>
 
